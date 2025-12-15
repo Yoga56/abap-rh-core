@@ -1,0 +1,102 @@
+@Metadata.layer: #CUSTOMER
+
+@UI.headerInfo: { typeName: 'Contact',
+                  typeNamePlural: 'Contacts',
+                  title.value: 'ContactId',
+                  description.value: 'ContactTypeInt' }
+
+annotate entity ZRH_C_CONTACTTP with
+
+{
+  @UI.facet: [ { id: 'idUserInfo',
+                 position: 10,
+                 type: #FIELDGROUP_REFERENCE,
+                 purpose: #HEADER,
+                 label: 'User Details',
+                 targetQualifier: 'HEAD_USER' },
+               { id: 'idGeneral',
+                 position: 10,
+                 type: #IDENTIFICATION_REFERENCE,
+                 label: 'General',
+                 targetQualifier: 'GENERAL' },
+               { id: 'idCollectionDetail', position: 20, type: #COLLECTION, label: 'Details' },
+               { id: 'idPerson',
+                 parentId: 'idCollectionDetail',
+                 position: 10,
+                 type: #FIELDGROUP_REFERENCE,
+                 label: 'Person Detail',
+                 targetQualifier: 'PRN' },
+               { id: 'idAddress',
+                 parentId: 'idCollectionDetail',
+                 position: 20,
+                 type: #FIELDGROUP_REFERENCE,
+                 label: 'Address Detail',
+                 targetQualifier: 'ADR' } ]
+  @UI.lineItem: [ { position: 10 } ]
+  @UI.selectionField: [ { position: 10 } ]
+  ContactId;
+
+  @UI.lineItem: [ { position: 20 } ]
+  @UI.selectionField: [ { position: 20 } ]
+  ContactTypeInt;
+
+  @UI.fieldGroup: [ { position: 10, qualifier: 'PRN' } ]
+  @UI.identification: [ { position: 10, qualifier: 'GENERAL' } ]
+  @UI.lineItem: [ { position: 30 } ]
+  FirstName;
+
+  @UI.fieldGroup: [ { position: 20, qualifier: 'PRN' } ]
+  @UI.identification: [ { position: 20, qualifier: 'GENERAL' } ]
+  @UI.lineItem: [ { position: 40 } ]
+  LastName;
+
+  @UI.fieldGroup: [ { position: 30, qualifier: 'PRN' } ]
+  @UI.identification: [ { position: 30, qualifier: 'GENERAL' } ]
+  @UI.lineItem: [ { position: 50 } ]
+  Birthday;
+
+  @UI.fieldGroup: [ { position: 10, qualifier: 'ADR' } ]
+  @UI.lineItem: [ { position: 60 } ]
+  Street;
+
+  @UI.fieldGroup: [ { position: 20, qualifier: 'ADR' } ]
+  @UI.lineItem: [ { position: 70 } ]
+  HouseNumber;
+
+  @UI.fieldGroup: [ { position: 30, qualifier: 'ADR' } ]
+  @UI.lineItem: [ { position: 80 } ]
+  Town;
+
+  @UI.fieldGroup: [ { position: 40, qualifier: 'ADR' } ]
+  @UI.lineItem: [ { position: 90 } ]
+  ZipCode;
+
+  @UI.fieldGroup: [ { position: 50, qualifier: 'ADR' } ]
+  @UI.lineItem: [ { position: 100 } ]
+  @UI.selectionField: [ { position: 30 } ]
+  Country;
+
+  @UI.fieldGroup: [ { position: 60, qualifier: 'ADR' } ]
+  @UI.lineItem: [ { position: 110 } ]
+  Telephone;
+
+  @UI.fieldGroup: [ { position: 70, qualifier: 'ADR' } ]
+  @UI.lineItem: [ { position: 120 } ]
+  Email;
+
+  @UI.fieldGroup: [ { position: 10, qualifier: 'HEAD_USER' } ]
+  @UI.hidden: true
+  LocalCreatedBy;
+
+  @UI.hidden: true
+  LocalCreatedAt;
+
+  @UI.hidden: true
+  LocalLastChangedBy;
+
+  @UI.hidden: true
+  LocalLastChangedAt;
+
+  @UI.hidden: true
+  LastChangedAt;
+}
