@@ -85,13 +85,12 @@ annotate entity ZRH_C_CONTACTTP with
   Email;
 
   @UI.fieldGroup: [ { position: 10, qualifier: 'HEAD_USER' } ]
-  @UI.hidden: true
   LocalCreatedBy;
 
   @UI.hidden: true
   LocalCreatedAt;
 
-  @UI.hidden: true
+  @UI.fieldGroup: [ { position: 20, qualifier: 'HEAD_USER' } ]
   LocalLastChangedBy;
 
   @UI.hidden: true
